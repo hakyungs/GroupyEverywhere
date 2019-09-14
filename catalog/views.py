@@ -4,7 +4,7 @@ from django.utils import timezone
 from django.http import HttpResponseRedirect
 
 from .models import Event
-from .forms import CreateForm
+from .forms import CreateForm, JoinForm
 
 # Create your views here.
 def catalog(request):
@@ -30,6 +30,19 @@ def create(request):
         event.save()
         return HttpResponseRedirect('../')
     return render(request, 'create.html', {"form": form})
+
+def join(request, pk):
+    event = Event.objects.get(pk=pk)
+    form = JoinForm()
+    if request.method == "POST":
+        form = JoinForm(request.POST)
+        member = form.data["andrewID"]
+        event.member += ", " + member
+        event.size += 1
+        event.save()
+        return HttpResponseRedirect('../')
+    return render(request, 'join.html', {"form": form})
+        
 
 class EventDetailView(generic.DetailView):
     model = Event

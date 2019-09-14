@@ -7,3 +7,7 @@ class CreateForm(forms.Form):
     startTime = forms.DateTimeField()
     endTime = forms.DateTimeField()
     capacity = forms.IntegerField()
+
+
+class JoinForm(forms.Form):
+    andrewID = forms.CharField(max_length=20)

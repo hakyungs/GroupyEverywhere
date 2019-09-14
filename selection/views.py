@@ -12,8 +12,6 @@ def activity(request):
     return render(request, "activity.html", {})
 
 def study(request):
-    # C = College()
-    # category_list = C.list_all()
     return render(request, "study.html", {})
 
 def food(request):

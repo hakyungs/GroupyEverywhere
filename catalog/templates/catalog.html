@@ -1,7 +1,14 @@
 {% extends "base_generic.html" %}
+{% load static %}
 
 {% block content %}
 <style>
+  .row {
+    padding-top: 4%;
+    padding-left: 3%;
+    display: flex;
+  }
+
   body {
     background-color: #2A3133 !important;
   }
@@ -16,6 +23,44 @@
     border: 2;
     border-color: rgb(255,255,242); !important
   }
+
+  .img__wrap {
+    position: relative;
+  }
+
+  .img__description_layer {
+    width: 75%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    color: #fff;
+    background: rgba(42, 49, 51, 0.8);
+    visibility: hidden;
+    opacity: 0;
+    display: flex;
+    align-items: right;
+    justify-content: right;
+    font-size: 30px;
+
+    /* transition effect. not necessary */
+    transition: opacity .2s, visibility .2s;
+  }
+
+  .img__wrap:hover .img__description_layer {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .img__description {
+    transition: .2s;
+    transform: translateY(1em);
+  }
+
+  .img__wrap:hover .img__description {
+    transform: translateY(0);
+
   </style>
 <div style="margin-left:20px;margin-top:20px">
     <h1>Event List</h1>
@@ -24,10 +69,21 @@
     {% for event in event_list %}
     {% if event.capacity > event.size %}
     <hr>
+    <div class="column">
+      <div class="img__wrap">
+        <a href="{% url 'catalog' %}">
+          <img src="{% static 'Asset 53.png' %}" alt="food" style="width: 8%; height: auto; float: right;">
+          <div class="img__description_layer" style="clear: right">
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="column">
         <h3><a href="{{ event.get_detail_url }}">{{ event.title }}</a></h3>
         <p><strong>Host: </strong>{{ event.leader }}</p>
         <p><strong>Start: </strong>{{ event.startTime }}</p>
         <p><strong>Number of participants: </strong>{{ event.size }} / {{ event.capacity }}</p>
+      </div>
     {% endif %}
     {% endfor %}
     {% else %}

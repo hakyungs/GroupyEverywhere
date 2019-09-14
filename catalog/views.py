@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views import generic
 from django.utils import timezone
+from django.http import HttpResponseRedirect
 
 from .models import Event
 from .forms import CreateForm
@@ -16,18 +17,18 @@ def create(request):
     form = CreateForm()
     if request.method == "POST":
         form = CreateForm(request.POST)
-        if form.is_valid():
-            event = Event(
-                title=form.cleaned_data["title"],
-                description=form.cleaned_data["content"],
-                category="FOOD",
-                startTime=timezone.now(),
-                endTime=timezone.now(),
-                capacity=form.cleaned_data["capacity"],
-                size = 0,
-                leader=form.cleaned_data["andrewID"] 
-            )
-            event.save()
+        event = Event(
+            title=form.data["title"],
+            description=form.data["content"],          
+            category="FOOD",
+            startTime=timezone.now(),
+            endTime=timezone.now(),
+            capacity=form.data["capacity"],       
+            size=0,
+            leader=form.data["andrewID"]
+        )
+        event.save()
+        return HttpResponseRedirect('../')
     return render(request, 'create.html', {"form": form})
 
 class EventDetailView(generic.DetailView):

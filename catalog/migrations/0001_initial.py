@@ -19,6 +19,7 @@ class Migration(migrations.Migration):
                 ('name', models.CharField(max_length=20)),
                 ('andrewID', models.CharField(max_length=20)),
                 ('college', models.CharField(max_length=10)),
+                ('category', models.CharField(max_length=10))
             ],
         ),
         migrations.CreateModel(

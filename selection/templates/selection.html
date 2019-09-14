@@ -13,13 +13,13 @@
             height: auto;
         }
         .row {
-            padding-top: 30px;
-            padding-left: 30px;
+            padding-top: 4%;
+            padding-left: 8%;
         }
         .column {
             float: left;
             width: auto;
-            padding: 30px;
+            padding: 10px;
         }
         @media screen and (max-width: 500px) {
             .column {
@@ -35,21 +35,21 @@
     <body bgcolor="#2A3133">
         <div class="row">
             <div class="column">
-                <img src="{% static 'food.png' %}" alt="food" style="width: auto; height: auto;" usemap="#foodmap">
+                <img src="{% static 'food.png' %}" alt="food" style="width: 85%; height: auto;" usemap="#foodmap">
                 <map name="foodmap">
-                    <area shape="rect" coords="0,0,475,475" alt="food" href="{% url 'food' %}">
+                    <area shape="rect" coords="0,0,404,404" alt="food" href="{% url 'food' %}">
                 </map>
             </div>
             <div class="column">
-                <img src="{% static 'activity.png' %}" alt="activity" style="width: auto; height: auto;" usemap="#activitymap">
+                <img src="{% static 'activity.png' %}" alt="activity" style="width: 85%; height: auto;" usemap="#activitymap">
                 <map name="activitymap">
-                    <area shape="rect" coords="0,0,475,475" alt="activity" href="{% url 'activity' %}">
+                    <area shape="rect" coords="0,0,404,404" alt="activity" href="{% url 'activity' %}">
                 </map>
             </div>
             <div class="column">
-                <img src="{% static 'study.png' %}" alt="study" style="width: auto; height: auto;" usemap="#studymap">
+                <img src="{% static 'study.png' %}" alt="study" style="width: 85%; height: auto;" usemap="#studymap">
                 <map name="studymap">
-                    <area shape="rect" coords="0,0,475,475" alt="study" href="{% url 'study' %}">
+                    <area shape="rect" coords="0,0,404,404" alt="study" href="{% url 'study' %}">
                 </map>
             </div>
         </div>

@@ -1,6 +1,10 @@
 {% extends "base_generic.html" %}
+{% load static %}
+
+<html>
 
 {% block content %}
+<<<<<<< HEAD
 <h1>Create Event</h1>
 <form method="POST">
     {% csrf_token %}
@@ -15,3 +19,23 @@
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 {% endblock %}
+=======
+<body>
+    <img src="{% static 'Asset 62.png' %}" alt="background" style="width: 75%; height: auto;">
+    <h1>Create Event</h1>
+    <form action="../" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <p>Andrew ID: {{ form.andrewID }}</p>
+        </div>
+        <p>Title: {{ form.title }}</p>
+        <p>Content: {{ form.content }}</p>
+        <p>Start: {{ form.startTime }}</p>
+        <p>End: {{ form.endTime }}</p>
+        <p>Group size: {{ form.capacity }}</p>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    {% endblock %}
+</body>
+</html>
+>>>>>>> e418224cac9906f55db76f0c4af18e5c167f4ee3

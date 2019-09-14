@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 
 # Create your models here.
 class User(models.Model):
@@ -24,3 +25,8 @@ class Event(models.Model):
     def __str__(self):
         return self.title
 
+    def isFull(self):
+        return self.size >= self.capacity
+
+    def isEnded(self):
+        return timezone.now() > self.endTime

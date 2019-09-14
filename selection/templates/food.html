@@ -1,3 +1,83 @@
-<h1>FOOOOOOOOOOOOOD</h1>
+{% load static %}
+<html>
+<style>
+  header {
+    margin-top: 8%;
+    margin-bottom: auto;
+  }
 
-<a href="{% url 'catalog' %}">catalog</a><br>
+  .center {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    height: auto;
+  }
+
+  .row {
+    padding-top: 4%;
+    padding-left: 5%;
+    display: flex;
+  }
+
+  .column {
+    width: auto;
+    padding: 10px;
+    flex: 33.33%;
+  }
+
+  @media screen and (max-width: 500px) {
+    .column {
+      width: 100%;
+    }
+  }
+
+  .img__wrap {
+    position: relative;
+  }
+
+  .img__description_layer {
+    width: 75%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    color: #fff;
+    background: rgba(42, 49, 51, 0.8);
+    visibility: hidden;
+    opacity: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+
+    /* transition effect. not necessary */
+    transition: opacity .2s, visibility .2s;
+  }
+
+  .img__wrap:hover .img__description_layer {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .img__description {
+    transition: .2s;
+    transform: translateY(1em);
+  }
+
+  .img__wrap:hover .img__description {
+    transform: translateY(0);
+  }
+</style>
+
+<header>
+  <img src="{% static 'title.png' %}" alt="title" class="center" style="width: 50%;">
+  <div class="center">
+    <img src="{% static 'description.png' %}" alt="description" class="center" style="width: 40%;">
+  </div>
+</header>
+
+<body bgcolor="#2A3133">
+</body>
+
+</html>

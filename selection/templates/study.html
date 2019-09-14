@@ -1,85 +1,169 @@
 {% load static %}
 
 <html>
-    <style>
-        header {
-            margin-top: 6%;
-            margin-bottom: auto;
-        }
-        .center {
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            height: auto;
-        }
-        .row {
-            float: left;
-            height: auto;
-            padding-top: 4%;
-            padding-left: 18%;
-        }
-        .column {
-            float: left;
-            width: auto;
-            padding: 10px;
-        }
-        @media screen and (max-width: 500px) {
-            .column {
-                width: 100%;
-            }
-        }
-    </style>
+<style>
+  header {
+    margin-top: 8%;
+    margin-bottom: auto;
+  }
 
-    <img src="{% static 'logo.png' %}" alt="logo">
-    <header>
-        <img src="{% static 'study_des.png' %}" alt="description" class="center" style="width: 25%;">
-    </header>
-    <body bgcolor="#2A3133">
-        <div class="row">
-            <div class="column">
-                <img src="{% static '1.png' %}" alt="food" style="width: 85%; height: auto;" usemap="#1map">
-                <map name="1map">
-                    <area shape="rect" coords="0,0,216,198" alt="food" href="{% url 'catalog' %}">
-                </map>
+  .center {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    height: auto;
+  }
+
+  .row {
+    padding-top: 4%;
+    padding-left: 5%;
+    display: flex;
+  }
+
+  .column {
+    width: auto;
+    padding: 10px;
+    flex: 25%;
+  }
+
+  @media screen and (max-width: 500px) {
+    .column {
+      width: 100%;
+    }
+  }
+
+  .img__wrap {
+    position: relative;
+  }
+
+  .img__description_layer {
+    width: 75%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    color: #fff;
+    background: rgba(42, 49, 51, 0.8);
+    visibility: hidden;
+    opacity: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+
+    /* transition effect. not necessary */
+    transition: opacity .2s, visibility .2s;
+  }
+
+  .img__wrap:hover .img__description_layer {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .img__description {
+    transition: .2s;
+    transform: translateY(1em);
+  }
+
+  .img__wrap:hover .img__description {
+    transform: translateY(0);
+  }
+</style>
+
+<a href={% url 'selection' %}>
+  <img src="{% static 'logo.png' %}" alt="logo">
+</a>
+<header>
+  <img src="{% static 'study_des.png' %}" alt="description" class="center" style="width: 25%;">
+</header>
+
+<body bgcolor="#2A3133">
+  <div class="row">
+    <div class="center">
+      <div class="column">
+        <div class="img__wrap">
+          <a href={% url 'catalog' %}>
+            <img src="{% static '1.png' %}" alt="food" style="width: 75%; height: auto;">
+            <div class="img__description_layer">
+              <p class="img__description">Engineering</p>
             </div>
-            <div class="column">
-                <img src="{% static '2.png' %}" alt="activity" style="width: 85%; height: auto;" usemap="#2map">
-                <map name="2map">
-                    <area shape="rect" coords="0,0,216,198" alt="activity" href="{% url 'catalog' %}">
-                </map>
-            </div>
-            <div class="column">
-                <img src="{% static '3.png' %}" alt="study" style="width: 85%; height: auto;" usemap="#3map">
-                <map name="3map">
-                    <area shape="rect" coords="0,0,216,198" alt="study" href="{% url 'catalog' %}">
-                </map>
-            </div>
-            <div class="column">
-                <img src="{% static '4.png' %}" alt="study" style="width: 85%; height: auto;" usemap="#4map">
-                <map name="4map">
-                    <area shape="rect" coords="0,0,216,198" alt="study" href="{% url 'catalog' %}">
-                </map>
-            </div>
+          </a>
         </div>
-        <div class="row" style="padding-left: 26%; padding-top: 2%;" >
-            <div class="column">
-                <img src="{% static '5.png' %}" alt="food" style="width: 85%; height: auto;" usemap="#5map">
-                <map name="5map">
-                    <area shape="rect" coords="0,0,216,198" alt="food" href="{% url 'catalog' %}">
-                </map>
+      </div>
+      <div class="column">
+        <div class="img__wrap">
+          <a href={% url 'catalog' %}>
+            <img src="{% static '2.png' %}" alt="chem" style="width: 75%; height: auto;">
+            <div class="img__description_layer">
+              <p class="img__description">Science</p>
             </div>
-            <div class="column">
-                <img src="{% static '6.png' %}" alt="activity" style="width: 85%; height: auto;" usemap="#6map">
-                <map name="6map">
-                    <area shape="rect" coords="0,0,216,198" alt="activity" href="{% url 'catalog' %}">
-                </map>
-            </div>
-            <div class="column">
-                <img src="{% static '7.png' %}" alt="study" style="width: 85%; height: auto;" usemap="#7map">
-                <map name="7map">
-                    <area shape="rect" coords="0,0,216,198" alt="study" href="{% url 'catalog' %}">
-                </map>
-            </div>
+          </a>
         </div>
-    </body>
+      </div>
+      <div class="column">
+        <div class="img__wrap">
+          <a href={% url 'catalog' %}>
+            <img src="{% static '3.png' %}" alt="CS" style="width: 75%; height: auto;">
+            <div class="img__description_layer">
+              <p class="img__description">CS</p>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="column">
+        <div class="img__wrap">
+          <a href={% url 'catalog' %}>
+            <img src="{% static '4.png' %}" alt="ECE" style="width: 75%; height: auto;">
+            <div class="img__description_layer">
+              <p class="img__description">ECE</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="center">
+      <style>
+        .column {
+          width: auto;
+          flex: 33.33%;
+          padding: 10px;
+        }
+      </style>
+      <div class="column">
+        <div class="img__wrap">
+          <a href={% url 'catalog' %}>
+            <img src="{% static '5.png' %}" alt="tepper" style="width: 75%; height: auto;">
+            <div class="img__description_layer">
+              <p class="img__description">Business</p>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="column">
+        <div class="img__wrap">
+          <a href={% url 'catalog' %}>
+            <img src="{% static '6.png' %}" alt="activity" style="width: 75%; height: auto;">
+            <div class="img__description_layer">
+              <p class="img__description">Literature</p>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="column">
+        <div class="img__wrap">
+          <a href={% url 'catalog' %}>
+            <img src="{% static '7.png' %}" alt="study" style="width: 75%; height: auto;">
+            <div class="img__description_layer">
+              <p class="img__description">Fine Art</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
 </html>

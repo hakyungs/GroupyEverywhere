@@ -20,9 +20,8 @@ class Event(models.Model):
     endTime = models.DateTimeField()
     capacity = models.IntegerField()
     size = models.IntegerField()
-    # leader = models.ForeignKey(User, on_delete=models.CASCADE, related_name='the_leader')
     leader = models.CharField(max_length=20)
-    # members = models.ManyToManyField(User, related_name='members')
+    members = models.CharField(max_length=1000)
 
     def __str__(self):
         return self.title
@@ -33,5 +32,8 @@ class Event(models.Model):
     def isEnded(self):
         return timezone.now() > self.endTime
 
-    def get_absolute_url(self):
+    def get_detail_url(self):
         return reverse('event_detail', args=[str(self.pk)])
+
+    def get_join_url(self):
+        return reverse('join', args=[str(self.pk)])

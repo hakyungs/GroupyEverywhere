@@ -4,8 +4,8 @@ from django.shortcuts import render
 def selection(request):
     return render(request, "selection.html", {})
 
-def activities(request):
-    return render(request, "activities.html", {})
+def activity(request):
+    return render(request, "activity.html", {})
 
 def study(request):
     return render(request, "study.html", {})

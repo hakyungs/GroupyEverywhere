@@ -2,7 +2,7 @@
 <html>
 <style>
   header {
-    margin-top: 8%;
+    margin-top: 4%;
     margin-bottom: auto;
   }
 
@@ -15,14 +15,14 @@
 
   .row {
     padding-top: 4%;
-    padding-left: 5%;
+    padding-left: 20%;
     display: flex;
   }
 
   .column {
     width: auto;
     padding: 10px;
-    flex: 33.33%;
+    flex: 50%;
   }
 
   @media screen and (max-width: 500px) {
@@ -68,16 +68,41 @@
   .img__wrap:hover .img__description {
     transform: translateY(0);
   }
+
+}
 </style>
 
+<a href={% url 'selection' %}>
+  <img src="{% static 'logo.png' %}" alt="logo">
+</a>
 <header>
-  <img src="{% static 'title.png' %}" alt="title" class="center" style="width: 50%;">
-  <div class="center">
-    <img src="{% static 'description.png' %}" alt="description" class="center" style="width: 40%;">
-  </div>
+  <img src="{% static 'Asset 15.png' %}" alt="description" class="center" style="width: 10%;">
 </header>
 
 <body bgcolor="#2A3133">
+
+  <div class="row">
+    <div class="center">
+      <div class="column">
+        <img src="{% static 'Asset 13.png' %}" alt="map" usemap="#campusmap" style="width: 100%;">
+        <map name="campusmap">
+          <area shape="poly" coords="24,183,216,41,264,125,88,256" alt="tepper" href="{% url 'catalog' %}">
+          <area shape="poly" coords="173,203,256,134,308,260,216,294" alt="gates" href="{% url 'catalog' %}">
+          <area shape="poly" coords="268,131,385,83,434,224,319,260" alt="uc" href="{% url 'catalog' %}">
+        </map>
+      </div>
+      <div class="column">
+        <div class="img__wrap">
+          <a href={% url 'catalog' %}>
+            <img src="{% static 'Asset 14.png' %}" alt="offcampus" style="width:45%; height: auto;">
+            <div class="img__description_layer">
+              <p class="img__description"></p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 
 </html>

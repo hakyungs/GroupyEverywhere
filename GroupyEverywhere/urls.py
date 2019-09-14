@@ -19,7 +19,6 @@ from django.urls import path, include
 urlpatterns = [
     path('groupy-everywhere/admin/', admin.site.urls),
     path('groupy-everywhere/', include('django.contrib.auth.urls')),
-    path('groupy-everywhere/create/', include('create.urls')),
     path('groupy-everywhere/i-need/', include('selection.urls')),
     path('groupy-everywhere/catalog/', include('catalog.urls')),
 ]

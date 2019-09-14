@@ -1,20 +1,18 @@
 from django.shortcuts import render
+from django.views import generic
 
 from .models import Event
 from .forms import CatalogForm
 
 # Create your views here.
-def catalog(request, category):
-    events = Event.objects.filter(category=category)
+class EventListView(generic.ListView):
+    model = Event
+    context_object_name = 'event_list'
+    queryset = Event.objects.filter(category="FOOD").order_by("-endTime")
+    template_name = 'catalog.html'
 
-    if request.method == 'POST':
-        form = CatalogForm()
-    else:
-        form = CatalogForm()
 
-    context = {
-        'form': form,
-        'events': events,
-    }
-
-    return render(request, 'catalog.html', context)
+class EventDetailView(generic.DetailView):
+    model = Event
+    context_object_name = 'event'
+    template_name = 'event.html'

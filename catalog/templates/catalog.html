@@ -40,8 +40,8 @@
     visibility: hidden;
     opacity: 0;
     display: flex;
-    align-items: right;
-    justify-content: right;
+    align-items: center;
+    justify-content: center;
     font-size: 30px;
 
     /* transition effect. not necessary */
@@ -71,7 +71,7 @@
     <hr>
     <div class="column">
       <div class="img__wrap">
-        <a href="{% url 'catalog' %}">
+        <a href="{{ event.get_detail_url }}/join">
           <img src="{% static 'Asset 53.png' %}" alt="food" style="width: 8%; height: auto; float: right;">
           <div class="img__description_layer" style="clear: right">
           </div>

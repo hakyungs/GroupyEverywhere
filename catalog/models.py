@@ -16,11 +16,13 @@ class Event(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField()
     category = models.CharField(max_length=10)
-    startTime = models.DateTimeField()
-    endTime = models.DateTimeField()
+    startTime = models.CharField(max_length=30)
+    endTime = models.CharField(max_length=30)
     capacity = models.IntegerField()
-    leader = models.ForeignKey(User, on_delete=models.CASCADE, related_name='the_leader')
-    members = models.ManyToManyField(User, related_name='members')
+    size = models.IntegerField()
+    # leader = models.ForeignKey(User, on_delete=models.CASCADE, related_name='the_leader')
+    leader = models.CharField(max_length=20)
+    # members = models.ManyToManyField(User, related_name='members')
 
     def __str__(self):
         return self.title

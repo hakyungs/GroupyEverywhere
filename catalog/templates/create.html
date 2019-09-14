@@ -1,0 +1,17 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<h1>Create Event</h1>
+<form action="../" method="post">
+    {% csrf_token %}
+    <div class="form-group">
+        <p>Andrew ID: {{ form.andrewID }}</p>
+    </div>
+    <p>Title: {{ form.title }}</p>
+    <p>Content: {{ form.content }}</p>
+    <p>Start: {{ form.startTime }}</p>
+    <p>End: {{ form.endTime }}</p>
+    <p>Group size: {{ form.capacity }}</p>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock %}

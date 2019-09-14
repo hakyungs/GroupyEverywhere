@@ -15,11 +15,13 @@
         .row {
             padding-top: 4%;
             padding-left: 8%;
+            display: flex;
         }
         .column {
             float: left;
             width: auto;
             padding: 10px;
+            flex: 33.33%;
         }
         @media screen and (max-width: 500px) {
             .column {
@@ -35,22 +37,19 @@
     <body bgcolor="#2A3133">
         <div class="row">
             <div class="column">
-                <img src="{% static 'food.png' %}" alt="food" style="width: 85%; height: auto;" usemap="#foodmap">
-                <map name="foodmap">
-                    <area shape="rect" coords="0,0,404,404" alt="food" href="{% url 'food' %}">
-                </map>
+              <a href={% url 'food' %}>
+                <img src="{% static 'food.png' %}" alt="food" style="width: 75%; height: auto;" >
+              </a>
             </div>
             <div class="column">
-                <img src="{% static 'activity.png' %}" alt="activity" style="width: 85%; height: auto;" usemap="#activitymap">
-                <map name="activitymap">
-                    <area shape="rect" coords="0,0,404,404" alt="activity" href="{% url 'activity' %}">
-                </map>
+              <a href={% url 'activity' %}>
+                <img src="{% static 'activity.png' %}" alt="activity" style="width: 75%; height: auto;" >
+              </a>
             </div>
             <div class="column">
-                <img src="{% static 'study.png' %}" alt="study" style="width: 85%; height: auto;" usemap="#studymap">
-                <map name="studymap">
-                    <area shape="rect" coords="0,0,404,404" alt="study" href="{% url 'study' %}">
-                </map>
+              <a href={% url 'study' %}>
+                <img src="{% static 'study.png' %}" alt="study" style="width: 75%; height: auto;" >
+              </a>
             </div>
         </div>
     </body>

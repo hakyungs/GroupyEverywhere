@@ -5,11 +5,11 @@ from .models import Event
 from .forms import CatalogForm
 
 # Create your views here.
-class EventListView(generic.ListView):
-    model = Event
-    context_object_name = 'event_list'
-    queryset = Event.objects.filter(category="FOOD").order_by("-endTime")
-    template_name = 'catalog.html'
+def catalog(request):
+    event_list = Event.objects.filter(category="FOOD").order_by("-endTime")
+    if request == "POST":
+        pass
+    return render(request, 'catalog.html', {'event_list': event_list})
 
 
 class EventDetailView(generic.DetailView):

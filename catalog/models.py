@@ -32,5 +32,8 @@ class Event(models.Model):
     def isEnded(self):
         return timezone.now() > self.endTime
 
-    def get_absolute_url(self):
+    def get_detail_url(self):
         return reverse('event_detail', args=[str(self.pk)])
+
+    def get_join_url(self):
+        return reverse('join', args=[str(self.pk)])

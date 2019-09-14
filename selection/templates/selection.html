@@ -1,5 +1,13 @@
-<h1>I need...</h1>
+{% load static %}
 
-<a href="{% url 'activity' %}">activity</a><br>
-<a href="{% url 'study' %}">study</a><br>
-<a href="{% url 'food' %}">food</a><br>
+<html>
+    <body bgcolor="#2A3133">
+        <img src="{% static 'title.png' %}" alt="My image">
+
+        <h1>I need...</h1>
+
+        <a href="{% url 'activity' %}">activity</a><br>
+        <a href="{% url 'study' %}">study</a><br>
+        <a href="{% url 'food' %}">food</a><br>
+    </body>
+</html>

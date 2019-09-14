@@ -1,13 +1,13 @@
 from django.shortcuts import render
-from .forms import EventForm
+from .forms import CreateForm
 
 # Create your views here.
 def create(request):
     if request == "POST":
-        form = EventForm(request.POST)
+        form = CreateForm(request.POST)
         if form.is_valid():
             return 
     else:
-        form = EventForm()
+        form = CreateForm()
 
     return render(request, "create.html", {'form': form})

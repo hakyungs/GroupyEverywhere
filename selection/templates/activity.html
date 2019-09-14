@@ -1,7 +1,57 @@
+{% load static %}
 
+<html>
+    <style>
+        header {
+            margin-top: 8%;
+            margin-bottom: auto;
+        }
+        .center {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            height: auto;
+        }
+        .row {
+            padding-top: 4%;
+            padding-left: 14%;
+        }
+        .column {
+            float: left;
+            width: auto;
+            padding: 10px;
+        }
+        @media screen and (max-width: 500px) {
+            .column {
+                width: 100%;
+            }
+        }
+    </style>
 
-
-
-<h1>I'm INSSA</h1>
-
-<a href="{% url 'catalog' %}">catalog</a><br>
+    <img src="{% static 'logo.png' %}" alt="logo">
+    <header>
+        <img src="{% static 'activity_des.png' %}" alt="description" class="center" style="width: 25%;">
+    </header>
+    <body bgcolor="#2A3133">
+        <div class="row">
+            <div class="column">
+                <img src="{% static 'music.png' %}" alt="food" style="width: 85%; height: auto;" usemap="#foodmap">
+                <map name="foodmap">
+                    <area shape="rect" coords="0,0,336,336" alt="food" href="{% url 'catalog' %}">
+                </map>
+            </div>
+            <div class="column">
+                <img src="{% static 'sports.png' %}" alt="activity" style="width: 85%; height: auto;" usemap="#activitymap">
+                <map name="activitymap">
+                    <area shape="rect" coords="0,0,336,336" alt="activity" href="{% url 'catalog' %}">
+                </map>
+            </div>
+            <div class="column">
+                <img src="{% static 'others.png' %}" alt="study" style="width: 85%; height: auto;" usemap="#studymap">
+                <map name="studymap">
+                    <area shape="rect" coords="0,0,336,336" alt="study" href="{% url 'catalog' %}">
+                </map>
+            </div>
+        </div>
+    </body>
+</html>

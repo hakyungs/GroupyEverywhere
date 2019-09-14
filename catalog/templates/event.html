@@ -1,13 +1,30 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
-  <h1>Title: {{ event.title }}</h1>
+<style>
+  body {
+    background-color: #2A3133 !important;
+  }
+
+  h1 {color: rgb(254,240,149) !important;}
+  strong{color: rgb(250,156,253) !important;}
+  a {color: rgb(254,240,149) !important;}
+  p {color: rgb(255,255,242) !important;}
+  a:hover {
+    color: rgb(211,95,73) !important;
+  }
+  hr {
+    border: 2;
+    border-color: rgb(255,255,242); !important
+  }
+  </style>
+  <h1>Event: {{ event.title }}</h1>
 
   <p><strong>Host: </strong> {{ event.leader }}</p>
   <p><strong>Participants: </strong>{{ event.members }}</p> 
   <p><strong>Description: </strong> {{ event.description }}</p>
   <p><strong>Start: </strong> {{ event.startTime }}</p>
-  <p><strong>End: </strong> {{ event.endTime }}</p> 
-  <p><strong>Capacity: </strong> {{ event.capacity }}</p>  
+  <p><strong>End: </strong> {{ event.endTime }}</p>
+  <p><strong>Capacity: </strong> {{ event.capacity }}</p>
   <p><strong>Size: </strong>  {{ event.size }}</p>
 {% endblock %}

@@ -4,7 +4,7 @@
   <h1>Title: {{ event.title }}</h1>
 
   <p><strong>Host: </strong> {{ event.leader }}</p>
-  <p><strong>Participants: </strong>{% for member in event.members.all %} {{ member }}{% if not forloop.last %}, {% endif %}{% endfor %}</p> 
+  <p><strong>Participants: </strong>{{ event.members }}</p> 
   <p><strong>Description: </strong> {{ event.description }}</p>
   <p><strong>Start: </strong> {{ event.startTime }}</p>
   <p><strong>End: </strong> {{ event.endTime }}</p> 

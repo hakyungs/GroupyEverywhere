@@ -37,10 +37,10 @@ def join(request, pk):
     if request.method == "POST":
         form = JoinForm(request.POST)
         member = form.data["andrewID"]
-        event.member += ", " + member
+        event.members += ", " + member
         event.size += 1
         event.save()
-        return HttpResponseRedirect('../')
+        return HttpResponseRedirect('../../')
     return render(request, 'join.html', {"form": form})
         
 
